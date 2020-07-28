@@ -22,6 +22,7 @@ During technical interviews, keep the following in mind and try to follow these 
 Work through the practice questions below to prepare for your mock interview:
 
 #### In Progress
+#### Done
 
 1. Given a document, implement an algorithm to count the number of word occurrences.
 
