@@ -5,9 +5,12 @@
 
 console.log('test')
 
-//function take input 
-//for each new word -> start new list
-//if word exists, add next occurance of word to list
+//function takes input string
+//creates new hashmap/obj = {}
+//if hashmap[word] doesn't exist, -> start new list item
+////new item would be hashmap[word] = 1 to start off count sequence
+//if hashmap[word] exists, .push to add next occurance of word to list
+////OR if exists, then second item in array is count, increase count by 1
 //{[hello, hello], [there], [how, how], [are], [you]}
-//for each row, return {[hello, 2], [there, 1], [how, 2]. [you, 1]}
+//for each row, return {[hello, 2], [there, 1], [how, 2], [you, 1]}
 //for each row, print row[0] + ' = ' + row[1] + ' , '
