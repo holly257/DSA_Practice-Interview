@@ -31,14 +31,14 @@ Work through the practice questions below to prepare for your mock interview:
 - Input: `"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"`
 - Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
 
-#### Next
-
-2. Given a sorted linked list, write an algorithm to delete all duplicate numbers from the sorted linked list.
-
 3. Given a string, write an algorithm to count the number of words in the string that are palindromes. The output must include a list of the palindromes and the number of palindromes.
 
  - Input: `"Dad gave mom a Tesla as a racecar"`
  - Output: `Dad, mom, racecar, 3 Palindromes`
+#### Next
+
+2. Given a sorted linked list, write an algorithm to delete all duplicate numbers from the sorted linked list.
+
 
 
 5. Given 2 linked lists, where each node in each linked list represents a character in a string, write a function compare() that compares the 2 strings, i.e., it returns 0 if both strings are the same, 1 if the 1st linked list is lexicographically greater, and -1 if the 2nd string is lexicographically greater.
