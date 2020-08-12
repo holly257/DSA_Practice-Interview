@@ -58,9 +58,28 @@ function wordOccurances(str) {
 //     wordOccurances('Hello there, how are you? Can you tell me how to get to the nearest Starbucks?')
 // );
 
+// 
 //___________________________________________________________________________________________
 // 2. Given a sorted linked list, write an algorithm to delete all duplicate numbers
 // from the sorted linked list.
+
+// input: {head:{value:1, next: _Node{value: 1, next: _Node{value: 2, next: _Node{value: 2, next: null}}}}}
+
+// function - takes sorted linked list
+// if list head is empty - return error
+// if list.head.next is null - return linked list
+// 
+// track current value - initialize at head.value
+// track nxt value - initialize at head.next
+// 
+// while !next.null
+// // if not match curr = nxt
+// // nxt = nxt.next
+// // if match curr.next = nxt.next
+// // nxt.next = null
+// 
+// return list
+
 
 //___________________________________________________________________________________________
 // 3. Given a string, write an algorithm to count the number of words in the string that
@@ -154,7 +173,7 @@ function countPalindromes(string) {
     return returnPhrase + allPalindromes.length + ' Palindromes';
 }
 
-console.log(countPalindromes('Dad gave mom a Tesla as a racecar'));
+// console.log(countPalindromes('Dad gave mom a Tesla as a racecar'));
 
 //___________________________________________________________________________________________
 // 5. Given 2 linked lists, where each node in each linked list represents a character in a
