@@ -5,8 +5,6 @@
 
 //time complexity: linear - O(n) - beacuse it only goes through the loop once, but it has to go through every letter
 
-console.log('test');
-
 //function takes input string
 //create new hashmap/obj = {}
 //if string length is 0 - return error
@@ -34,35 +32,31 @@ function wordOccurances(str) {
     if (str.length === 1) {
         return string + '= 1';
     }
-    let string = str.toLowerCase().replace(/[^\w\s]/gi, '')
-    let item = '';
+    let string = str.toLowerCase().replace(/[^\w\s]/gi, '');
 
-    for (let i=0; i<string.length+1; i++) {
-        let char = string.charAt(i);
-        
-        if (char !== ' ') {
-            item = item.concat('', char)
+    let allWords = string.split(' ');
+
+    allWords.forEach(item => {
+        if (pairs[item]) {
+            pairs[item] = pairs[item] + 1;
         } else {
-            if (pairs[item]) {
-                pairs[item] = pairs[item]+1;
-            } else {
-                pairs[item]
-                pairs[item] = 1;
-            }
-            item = '';
+            pairs[item];
+            pairs[item] = 1;
         }
-    }
+    });
+
     let occurances = '';
 
-    for(const [key, value] of Object.entries(pairs)){
-        occurances = occurances.concat('', key + ' = ' + value + ', ')
+    for (const [key, value] of Object.entries(pairs)) {
+        occurances = occurances.concat('', key + ' = ' + value + ', ');
     }
 
     return occurances;
 }
 
-//last word not printing? 
-console.log(wordOccurances('Hello there, how are you? Can you tell me how to get to the nearest Starbucks?'));
+// console.log(
+//     wordOccurances('Hello there, how are you? Can you tell me how to get to the nearest Starbucks?')
+// );
 
 //___________________________________________________________________________________________
 // 2. Given a sorted linked list, write an algorithm to delete all duplicate numbers
@@ -75,23 +69,92 @@ console.log(wordOccurances('Hello there, how are you? Can you tell me how to get
 //  - Input: `"Dad gave mom a Tesla as a racecar"`
 //  - Output: `Dad, mom, racecar, 3 Palindromes`
 
+//time complexity - quadratic/polynomial O(n^2) - or linear b/c not nested for loop
+
 //function takes a string
-//create array=[] & counter = 0 item = ''
-//slice on ' ', for each sliced off word set to item -> check isPalin()
-//call function to determine if its a palindrome
+//if length is 0 - return error
+//if length is 1 - return string + 1 Palindrome
+//if length is 2 - return 'no palindromes'
+//let allWords = string.split(' ')
+//let match = []
+//for each item in array
+////call function to determine if its a palindrome
 //////isPalin() takes word
 //////find length of word,
 //////middle = Math.floor(word.length / 2)
-/////pop letters off front from 0 to middle, push them into array
+////////check if odd - word.length % 2
+/////pop letters off front from 0 to middle, push them into array/stack
 //////if length was odd, ignore middle char - if even start at remaining char
 //////if for each remaining char if array.pop item === continue,
-////////if not return false, if no remaining chars then return true
-//if palindrome:
-////counter + 1
-////array.push(item)
+////////if not return false, if no remaining chars then return true & push to match
 //once string.length = 0
 ////construct string that for each item in array, itt concatonates each item + ', '
-////return string + {counter} + ' Palindromes'
+////return string + {match.length} + ' Palindromes'
+
+function countPalindromes(string) {
+    if (string.length === 0) {
+        return 'No Palindromes';
+    }
+
+    if (string.length === 1) {
+        return string + ', 1 Palindrome';
+    }
+
+    if (string.length === 2) {
+        return 'No Palindromes';
+    }
+
+    let allWords = string.split(' ');
+    let allPalindromes = [];
+
+    allWords.forEach(word => {
+        let odd = false;
+        let mid = word.length / 2;
+
+        if (word.length % 2 !== 0) {
+            odd = true;
+            mid = Math.floor(mid);
+        }
+        if (word.length === 1) {
+            allPalindromes.push(word);
+        }
+
+        if (word.length > 2) {
+            let firstHalf = [];
+            for (let i = 0; i < mid; i++) {
+                firstHalf.push(word.charAt(i));
+            }
+            if (!odd) {
+                for (let j = 0; j < firstHalf.length + 1; j++) {
+                    let itemA = firstHalf.pop();
+                    let itemB = word.charAt(mid + j);
+                    if (itemA.toLowerCase() !== itemB.toLowerCase()) {
+                        return false;
+                    }
+                }
+                allPalindromes.push(word);
+            } else {
+                for (let j = 1; j < firstHalf.length + 1; j++) {
+                    let itemA = firstHalf.pop();
+                    let itemB = word.charAt(mid + j);
+                    if (itemA.toLowerCase() !== itemB.toLowerCase()) {
+                        return false;
+                    }
+                }
+                allPalindromes.push(word);
+            }
+        }
+    });
+
+    let returnPhrase = '';
+    allPalindromes.forEach(word => {
+        returnPhrase = returnPhrase.concat('', word + ', ');
+    });
+
+    return returnPhrase + allPalindromes.length + ' Palindromes';
+}
+
+console.log(countPalindromes('Dad gave mom a Tesla as a racecar'));
 
 //___________________________________________________________________________________________
 // 5. Given 2 linked lists, where each node in each linked list represents a character in a

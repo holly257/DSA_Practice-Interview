@@ -22,10 +22,6 @@ During technical interviews, keep the following in mind and try to follow these 
 Work through the practice questions below to prepare for your mock interview:
 
 #### Done
-4. Explain how a hash table works.
-    - A hash table hold the key and and values associated with it. It is usually implemented using an array, with each slot staring out empty and being filled according to the hash function using hasing. Hasing is the process in which a key is mapped to a position in the hash table and the hash function is the function that determines the position for that key. The benefit to using a hash table is that it allows you to store data and find that data faster than you would in a linked list, since you would not have to traverse the whole list to find if an item exists or not. You would use the hash function to determine the locaiton of the item stored and then if there were values with that key, you would return them. If there were no values, you would know they do not exist anywhere else on the hashtable(unless you used open addressing for dealing with collisions). Hash maps has a search process time of O(1), where as linked lists typically have a search time of O(n).
-
-#### In Progress
 1. Given a document, implement an algorithm to count the number of word occurrences.
 
 - Input: `"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"`
@@ -35,6 +31,12 @@ Work through the practice questions below to prepare for your mock interview:
 
  - Input: `"Dad gave mom a Tesla as a racecar"`
  - Output: `Dad, mom, racecar, 3 Palindromes`
+ 
+4. Explain how a hash table works.
+    - A hash table hold the key and and values associated with it. It is usually implemented using an array, with each slot staring out empty and being filled according to the hash function using hasing. Hasing is the process in which a key is mapped to a position in the hash table and the hash function is the function that determines the position for that key. The benefit to using a hash table is that it allows you to store data and find that data faster than you would in a linked list, since you would not have to traverse the whole list to find if an item exists or not. You would use the hash function to determine the locaiton of the item stored and then if there were values with that key, you would return them. If there were no values, you would know they do not exist anywhere else on the hashtable(unless you used open addressing for dealing with collisions). Hash maps has a search process time of O(1), where as linked lists typically have a search time of O(n).
+
+#### In Progress
+
 #### Next
 
 2. Given a sorted linked list, write an algorithm to delete all duplicate numbers from the sorted linked list.
