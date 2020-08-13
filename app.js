@@ -143,9 +143,9 @@ function countPalindromes(string) {
         return string + ', 1 Palindrome';
     }
 
-    if (string.length === 2) {
-        return 'No Palindromes';
-    }
+    // if (string.length === 2) {
+    //     return 'No Palindromes';
+    // }
 
     let allWords = string.split(' ');
     let allPalindromes = [];
@@ -162,7 +162,7 @@ function countPalindromes(string) {
             allPalindromes.push(word);
         }
 
-        if (word.length > 2) {
+        if (word.length > 1) {
             let firstHalf = [];
             for (let i = 0; i < mid; i++) {
                 firstHalf.push(word.charAt(i));
@@ -196,7 +196,7 @@ function countPalindromes(string) {
 
     return returnPhrase + allPalindromes.length + ' Palindromes';
 }
-
+//linear on each character 
 // console.log(countPalindromes('Dad gave mom a Tesla as a racecar'));
 
 //___________________________________________________________________________________________
@@ -234,41 +234,30 @@ function countPalindromes(string) {
 // 
 
 function lexicoCompare(list_one, list_two){
-    if(list_one.head.value === null && list_two.value === null){
-        // technically equal - could return 0, error, false, or string to not send empty list?
-        return false
-    }
-    if(list_one.head === null){
-        return -1;
-    }
-    if(list_two.head === null){
-        return 1;
-    }
-
-    let count_one = list_one.head.value;
-    let count_two = list_two.head.value;
+    let count_one = list_one.head;
+    let count_two = list_two.head;
 
     // will list lengths always be the same?
-    while(count_one.value !== null){
-        if(count_one.value > count_two.value){
-            count_one = count_one.next;
-            count_two= count_two.next;
-            
-            // sum returned values? return string of 1, 0, -1, 1?
+    while(count_one !== null && count_two !== null){
+        if(count_one.value.toLowerCase() > count_two.value.toLowerCase()){
             return 1;
-        } else if(count_one.value < count_two.value){
-            count_one = count_one.next;
-            count_two= count_two.next;
+        } else if(count_one.value.toLowerCase() < count_two.value.toLowerCase()){
             return -1;
         } else {
             count_one = count_one.next;
             count_two= count_two.next;
-            return 0;
         }
     }
 
-    //what should this return look like?
-    return ;
+    if(count_one === null && count_two === null){
+        return 0;
+    }
+    if(count_one === null){
+        return -1;
+    }
+    if(count_two === null){
+        return 1;
+    }
 }
 
 //___________________________________________________________________________________________
