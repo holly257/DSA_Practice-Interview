@@ -58,7 +58,7 @@ function wordOccurances(str) {
 //     wordOccurances('Hello there, how are you? Can you tell me how to get to the nearest Starbucks?')
 // );
 
-// 
+//
 //___________________________________________________________________________________________
 // 2. Given a sorted linked list, write an algorithm to delete all duplicate numbers
 // from the sorted linked list.
@@ -68,18 +68,17 @@ function wordOccurances(str) {
 // function - takes sorted linked list
 // if list head is empty - return error
 // if list.head.next is null - return linked list
-// 
+//
 // track current value - initialize at head.value
 // track nxt value - initialize at head.next
-// 
+//
 // while !next.null
 // // if not match curr = nxt
 // // nxt = nxt.next
 // // if match curr.next = nxt.next
 // // nxt.next = null
-// 
+//
 // return list
-
 
 //___________________________________________________________________________________________
 // 3. Given a string, write an algorithm to count the number of words in the string that
@@ -197,3 +196,48 @@ function countPalindromes(string) {
 
 // - Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
 // - Output: `Mode = 3, Frequency of mode = 4`
+
+// time complexity - O(n) - looks at each item twice, giving constant of two - but not nested
+
+// function takes a sting of integers
+// string split on ', '
+// initialize an obj called countNums {}
+//
+// for each item in the array (from string split)
+//      if countNums does not have that key already,
+//          make key and set valule to 1
+//      if countNums has that key
+//          add one to countNums key of [1]
+//
+// initialize new array called max
+//      for each pair in countNums
+//          if key[1] is > max[1] - set pair as new max
+//
+// return mode = max[0], frequency of mode = max[1]
+//
+
+function findMode(string) {
+    let nums = string.split(', ');
+    let countNums = {};
+
+    nums.forEach(num => {
+        if (countNums[num]) {
+            countNums[num] = countNums[num] + 1;
+        } else {
+            countNums[num];
+            countNums[num] = 1;
+        }
+    });
+
+    let max = [0, 0];
+
+    for (const [key, value] of Object.entries(countNums)) {
+        if (value > max[1]) {
+            max = [key, value];
+        }
+    }
+
+    return `Mode = ${max[0]}, Frequency of mode = ${max[1]}`;
+}
+
+console.log(findMode(`1, 2, 3, 6, 10, 3, 5, 6, 3, 3`));

@@ -35,6 +35,11 @@ Work through the practice questions below to prepare for your mock interview:
 4. Explain how a hash table works.
     - A hash table hold the key and and values associated with it. It is usually implemented using an array, with each slot staring out empty and being filled according to the hash function using hasing. Hasing is the process in which a key is mapped to a position in the hash table and the hash function is the function that determines the position for that key. The benefit to using a hash table is that it allows you to store data and find that data faster than you would in a linked list, since you would not have to traverse the whole list to find if an item exists or not. You would use the hash function to determine the locaiton of the item stored and then if there were values with that key, you would return them. If there were no values, you would know they do not exist anywhere else on the hashtable(unless you used open addressing for dealing with collisions). Hash maps has a search process time of O(1), where as linked lists typically have a search time of O(n).
 
+6. Given a list of integers find the mode and the frequency of the mode. The mode in a list of numbers is the value that occurs the most often. If no number in the list is repeated, then there is no mode for the list.
+
+- Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
+- Output: `Mode = 3, Frequency of mode = 4`
+
 #### In Progress
 2. Given a sorted linked list, write an algorithm to delete all duplicate numbers from the sorted linked list.
 
@@ -51,10 +56,7 @@ Work through the practice questions below to prepare for your mock interview:
 - Input: `list 1: B->i->l->b->o->a, list 2: B->i->l->b->o->b` 
 - Output: `-1`
 
-6. Given a list of integers find the mode and the frequency of the mode. The mode in a list of numbers is the value that occurs the most often. If no number in the list is repeated, then there is no mode for the list.
 
-- Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
-- Output: `Mode = 3, Frequency of mode = 4`
 
 If you want more practice here are some good resources:
 
