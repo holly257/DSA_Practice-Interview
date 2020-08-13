@@ -189,6 +189,63 @@ function countPalindromes(string) {
 // - Input: `list 1: B->i->l->b->o->a, list 2: B->i->l->b->o->b`
 // - Output: `-1`
 
+// function that takes 2 linked lists
+// If both lists have lenght of 0 - return error
+// if one of the lists lengths is 0 - return the other list is greater
+// 
+// initialize a counter for list one - start at node.head.value
+// initialize a counter for list two - start at node.head.value
+// 
+// 
+// for length of list one
+//  if firstlist counter > second list counter
+//      return 1
+//  else if second list counter > first list count
+//      return -1
+//  else 
+//      return 0;
+// 
+// return something at end?
+// 
+
+function lexicoCompare(list_one, list_two){
+    if(list_one.head.value === null && list_two.value === null){
+        // technically equal - could return 0, error, false, or string to not send empty list?
+        return false
+    }
+    if(list_one.head === null){
+        return -1;
+    }
+    if(list_two.head === null){
+        return 1;
+    }
+
+    let count_one = list_one.head.value;
+    let count_two = list_two.head.value;
+
+    // will list lengths always be the same?
+    while(count_one.value !== null){
+        if(count_one.value > count_two.value){
+            count_one = count_one.next;
+            count_two= count_two.next;
+            
+            // sum returned values? return string of 1, 0, -1, 1?
+            return 1;
+        } else if(count_one.value < count_two.value){
+            count_one = count_one.next;
+            count_two= count_two.next;
+            return -1;
+        } else {
+            count_one = count_one.next;
+            count_two= count_two.next;
+            return 0;
+        }
+    }
+
+    //what should this return look like?
+    return ;
+}
+
 //___________________________________________________________________________________________
 // 6. Given a list of integers find the mode and the frequency of the mode. The mode in a
 // list of numbers is the value that occurs the most often. If no number in the list
@@ -240,4 +297,4 @@ function findMode(string) {
     return `Mode = ${max[0]}, Frequency of mode = ${max[1]}`;
 }
 
-console.log(findMode(`1, 2, 3, 6, 10, 3, 5, 6, 3, 3`));
+// console.log(findMode(`1, 2, 3, 6, 10, 3, 5, 6, 3, 3`));
