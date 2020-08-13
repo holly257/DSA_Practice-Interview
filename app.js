@@ -80,6 +80,31 @@ function wordOccurances(str) {
 //
 // return list
 
+function removeDuplicates(list){
+    if(!list.head.value){
+        return false;
+    }
+    if(list.head.next === null){
+        return list;
+    }
+
+    let currNode = list.head.value;
+    let nxtNode = list.head.next;
+
+    while(nxtNode !== null){
+        if(currNode.value === nxtNode.value){
+            currNode.next = nxtNode.next;
+            nxtNode.next = null;
+            nxtNode = currNode.next;
+        } else {
+            currNode = nxtNode;
+            nxtNode = nxtNode.next;
+        }
+    }
+
+    return list;
+}
+
 //___________________________________________________________________________________________
 // 3. Given a string, write an algorithm to count the number of words in the string that
 // are palindromes. The output must include a list of the palindromes and the number of palindromes.
